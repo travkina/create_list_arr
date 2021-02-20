@@ -28,44 +28,40 @@ public class Main
 	}
 	
 	public static ArrayList<int[]> createList(int n) {
-	    
-        ArrayList<int[]> list = new ArrayList<>();
-        int[] sizeArrays = new int[n];
-        int sizeArr;
-        boolean checkUnq;
-        Random random = new Random();
-        
-        for (int idx=0; idx<n; idx++){
-            // каждый массив имеет случайный размер
-            sizeArr = random.nextInt(100) + 1; 
-            //  Размеры массивов не должны совпадать
-            checkUnq = checkUnique(sizeArrays, sizeArr, idx);
-            if (checkUnq==false){
-               do {
-                    sizeArr = random.nextInt(100) + 1;
-                    checkUnq = checkUnique(sizeArrays, sizeArr, idx);
-               } while (checkUnq == false);
-           }
-            
-            sizeArrays[idx] = sizeArr;  
-        };
-        //сгенерировать n-массивов
-        for(int i=0;i<n;i++){
-            
-            int[] arr = new int[sizeArrays[i]];
-            //заполнить их случайными числами
-            for(int j = 0;j<arr.length;j++){
-                arr[j] = random.nextInt(100) + 1;
-            }
-            //Массивы с четным порядковым номером отсортировать по возрастанию, с нечетным порядковым номером - по убыванию
-           Arrays.sort(arr); 
-           if (i%2 != 0){
-              reversArray(arr);
-            }
-            
-            list.add(arr);
-        }
-        return list;
+		ArrayList<int[]> list = new ArrayList<>();
+		int[] sizeArrays = new int[n];
+		int sizeArr;
+		boolean checkUnq;
+		Random random = new Random();
+
+		for (int idx=0; idx<n; idx++){
+		    // каждый массив имеет случайный размер
+		    sizeArr = random.nextInt(100) + 1; 
+		    //  Размеры массивов не должны совпадать
+		    checkUnq = checkUnique(sizeArrays, sizeArr, idx);
+		    if (checkUnq==false){
+		       do {
+			    sizeArr = random.nextInt(100) + 1;
+			    checkUnq = checkUnique(sizeArrays, sizeArr, idx);
+		       } while (checkUnq == false);
+		   }
+		    sizeArrays[idx] = sizeArr;  
+		};
+		//сгенерировать n-массивов
+		for(int i=0;i<n;i++){
+		    int[] arr = new int[sizeArrays[i]];
+		    //заполнить их случайными числами
+		    for(int j = 0;j<arr.length;j++){
+			arr[j] = random.nextInt(100) + 1;
+		    }
+		    //Массивы с четным порядковым номером отсортировать по возрастанию, с нечетным порядковым номером - по убыванию
+		   Arrays.sort(arr); 
+		   if (i%2 != 0){
+		      reversArray(arr);
+		    }
+		   list.add(arr);
+		}
+		return list;
     }
     
     public static void reversArray(int[] arr){
