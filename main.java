@@ -14,17 +14,17 @@ public class Main
 	    Scanner in = new Scanner(System.in);
 	    
 	    do {
-            System.out.print("Enter a size list: \n");
-            sizeList = in.nextInt();
+            	System.out.print("Enter a size list: \n");
+            	sizeList = in.nextInt();
 	    } while (sizeList == 0);
-        
-		ArrayList<int[]> list = createList(sizeList);
-        for (int[] array : list) {
-             System.out.println(Arrays.toString(array)+"\n");
-        }
-        
-        in.close();
-        list.clear();
+
+	    ArrayList<int[]> list = createList(sizeList);
+	    for (int[] array : list) {
+		     System.out.println(Arrays.toString(array)+"\n");
+	    }
+
+	    in.close();
+	    list.clear();
 	}
 	
 	public static ArrayList<int[]> createList(int n) {
@@ -40,7 +40,6 @@ public class Main
             sizeArr = random.nextInt(100) + 1; 
             //  Размеры массивов не должны совпадать
             checkUnq = checkUnique(sizeArrays, sizeArr, idx);
-            
             if (checkUnq==false){
                do {
                     sizeArr = random.nextInt(100) + 1;
